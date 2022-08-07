@@ -59,3 +59,25 @@ html {
 #home .name p {
   opacity: 0.6;
 }
+
+/* Trainings */
+#training {
+  color: #fff;
+  padding: 1rem;
+}
+
+#training .items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#training .items .item {
+  /* width: 33%; */
+  text-align: center;
+  padding: 0.5rem;
+}
+#training .items .item:hover {
+  color: grey;
+  cursor: pointer;
+}

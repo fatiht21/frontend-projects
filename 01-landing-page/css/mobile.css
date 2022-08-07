@@ -3,3 +3,12 @@
   padding: 0.5rem 0;
   height: 80px;
 }
+#training .items {
+  flex-direction: column;
+}
+
+/* #training .items .item {
+  width: 33%;
+  text-align: center;
+  padding: 0.5rem;
+} */
