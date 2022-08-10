@@ -10,6 +10,7 @@
   <body>
     <div class="container">
       <div class="screen"></div>
+      <p id="snackbar">Lütfen bir film seçiniz</p>
       <div class="row">
         <div class="seat"></div>
         <div class="seat"></div>
@@ -64,7 +65,7 @@
 
     <div class="movie-list">
       <select name="" id="movie">
-        <option value="selected">Select a Film</option>
+        <option value="" disabled selected>Select a Film</option>
         <option value="20">Film 1</option>
         <option value="22">Film 2</option>
         <option value="25">Film 3</option>
@@ -73,11 +74,11 @@
 
     <ul class="info">
       <li>
-        <div class="seat selected"></div>
+        <div class="seat selected select-info"></div>
         <small>Selected</small>
       </li>
       <li>
-        <div class="seat"></div>
+        <div class="seat empty"></div>
         <small>Empty</small>
       </li>
       <li>
@@ -86,8 +87,8 @@
       </li>
     </ul>
     <p class="text">
-      The calculated fee for <span id="count">3</span> seats is
-      <span id="amount">60</span> Euro.
+      The calculated fee for <span id="count">0</span> seats is
+      <span id="amount">0</span> Euro.
     </p>
 
     <script src="script.js"></script>

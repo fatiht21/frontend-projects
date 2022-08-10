@@ -25,7 +25,7 @@ body {
   background-color: #fff;
 }
 
-.seat:not(.reserved):hover {
+.seat:not(.reserved, .select-info, .empty):hover {
   cursor: pointer;
   transform: scale(1.3);
 }
@@ -47,6 +47,8 @@ body {
   width: 100%;
   margin: 20px 0;
   box-shadow: 0 3px 8px rgba(255, 255, 255, 0.7);
+  color: black;
+  text-align: center;
 }
 
 .movie-list {
@@ -58,6 +60,7 @@ body {
   padding: 5px 10px;
   color: #777;
   display: flex;
+  cursor: default;
 }
 .info li {
   display: flex;
@@ -68,4 +71,26 @@ body {
 
 p.text span {
   color: #f6eb6f;
+}
+p.text {
+  cursor: default;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
 }
