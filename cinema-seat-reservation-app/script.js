@@ -3,6 +3,9 @@ const count = document.getElementById("count");
 const amount = document.getElementById("amount");
 const select = document.getElementById("movie");
 const screen = document.querySelector(".screen");
+const seats = document.querySelectorAll(
+  ".seat:not(.reserved, .select-info, .empty)"
+);
 
 container.addEventListener("click", function (e) {
   if (
@@ -25,10 +28,33 @@ select.addEventListener("change", function (e) {
 });
 
 function calculateTotal() {
-  let selectedSeatCount = container.querySelectorAll(".seat.selected").length;
-  let price = select.value;
+  const selectedSeats = container.querySelectorAll(".seat.selected");
+  const selectedSeatsArr = [];
+  const seatsArr = [];
+
+  selectedSeats.forEach(function (seat) {
+    selectedSeatsArr.push(seat);
+  });
+
+  seats.forEach(function (seat) {
+    seatsArr.push(seat);
+  });
+
+  let selectedSeatIndex = selectedSeatsArr.map(function (seat) {
+    return seatsArr.indexOf(seat);
+  });
+
+  console.log(selectedSeatIndex);
+  let selectedSeatCount = selectedSeats.length;
   count.innerText = selectedSeatCount;
-  amount.innerText = selectedSeatCount * price;
+  amount.innerText = selectedSeatCount * select.value;
+
+  saveToLocalStorage(selectedSeatIndex);
+}
+
+function saveToLocalStorage(index) {
+  localStorage.setItem("selectedSeats", JSON.stringify(index));
+  localStorage.setItem("selectedMovieIndex", select.selectedIndex);
 }
 
 function showAlert() {
