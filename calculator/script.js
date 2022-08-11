@@ -17,23 +17,23 @@ keys.addEventListener("click", function (e) {
 
   if (!element.matches("button")) return;
 
-  if (element.classList.contains("operator")) {
-    handleOperator(element.value);
-    updateDisplay();
-    return;
+  switch (element.value) {
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+    case "=":
+      handleOperator(element.value);
+      break;
+    case "=":
+      inputDecimal();
+      break;
+    case "clear":
+      clear();
+      break;
+    default:
+      inputNumber(element.value);
   }
-  if (element.classList.contains("decimal")) {
-    inputDecimal();
-    updateDisplay();
-    return;
-  }
-  if (element.classList.contains("clear")) {
-    clear();
-    updateDisplay();
-    return;
-  }
-
-  inputNumber(element.value);
   updateDisplay();
 });
 
