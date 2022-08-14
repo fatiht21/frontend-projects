@@ -10,8 +10,10 @@
   <body>
     <header>
       <nav>
-        <div class="logo">Header Logo</div>
-        <div class="links">
+        <div class="left">
+          <p class="logo">Header Logo</p>
+        </div>
+        <div class="right">
           <ul>
             <li><a href="#">header link one</a></li>
             <li><a href="#">header link two</a></li>
@@ -19,64 +21,67 @@
           </ul>
         </div>
       </nav>
-      <section class="hero">
-        <div class="title">
-          <h1>This Website is awesome</h1>
-          <p>
+      <div class="hero">
+        <div class="left">
+          <h1 class="title">This Website is awesome</h1>
+          <p class="secondary">
             This website has some subtext that goes here under the main title.
             It's smaller font and the color is lower contrast.
           </p>
-          <button>Sign Up</button>
+          <button class="first-btn secondary">Sign Up</button>
         </div>
-        <div class="image">this is a placeholder for an image</div>
-      </section>
+        <div class="right">
+          <div class="image">
+            <p class="secondary">this is a placeholder for an image</p>
+          </div>
+        </div>
+      </div>
     </header>
     <main>
-      <section class="content">
-        <div class="title2"><h1>Some Random information.</h1></div>
-        <div class="items">
-          <div class="item">
-            <div class="square"></div>
-            <p>this is some subtext under an illustration or image</p>
-          </div>
-          <div class="item">
-            <div class="square"></div>
-            <p>this is some subtext under an illustration or image</p>
-          </div>
-          <div class="item">
-            <div class="square"></div>
-            <p>this is some subtext under an illustration or image</p>
-          </div>
-          <div class="item">
-            <div class="square"></div>
-            <p>this is some subtext under an illustration or image</p>
-          </div>
+      <h2>Some Random information.</h2>
+      <div class="container secondary">
+        <div class="item">
+          <div class="square"></div>
+          <p>this is some subtext under an illustration or image</p>
         </div>
-      </section>
-      <section class="quote">
-        <div class="quote-paragraph">
-          <em
-            >This is an inspiring quote or a testimonial from a customer. Maybe
-            it's just filling up space, or maybe people will actually read it.
-            Who knows? All I know is that it looks nice.</em
-          >
-          <p class="author">-Thor, God of Thunder</p>
+        <div class="item">
+          <div class="square"></div>
+          <p>this is some subtext under an illustration or image</p>
         </div>
-      </section>
-      <section class="contact">
-        <div class="contact-body">
-          <div>
-            <h2>Call to action! It's time!</h2>
-            <p>
-              Sign up for our product by clicking that button right over there
-            </p>
-          </div>
-          <button class="btn-contact">Sign Up</button>
+        <div class="item">
+          <div class="square"></div>
+          <p>this is some subtext under an illustration or image</p>
         </div>
-      </section>
+        <div class="item">
+          <div class="square"></div>
+          <p>this is some subtext under an illustration or image</p>
+        </div>
+      </div>
     </main>
-    <footer>
-      <span>Copright &copy; The Odin Project 2022</span>
-    </footer>
+
+    <div class="quote">
+      <em
+        >This is an inspiring quote or a testimonial from a customer. Maybe it's
+        just filling up space, or maybe people will actually read it. Who knows?
+        All I know is that it looks nice.</em
+      >
+      <p>-Thor, God of Thunder</p>
+    </div>
+
+    <div class="contact">
+      <div class="contact-body">
+        <div class="left">
+          <strong>Call to action! It's time!</strong>
+          <p class="secondary">
+            Sign up for our product by clicking that button right over there!
+          </p>
+        </div>
+        <div class="right">
+          <button class="second-btn secondary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>Copright &copy; The Odin Project 2022</footer>
   </body>
 </html>
