@@ -2,8 +2,9 @@ const word_el = document.getElementById("word");
 const popup = document.getElementById("popup-container");
 const message_el = document.getElementById("success-message");
 
-const correctLetters = ["j", "a", "v", "s", "t"];
+const correctLetters = [];
 const wrongLetters = [];
+const selectedWord = getRandomWord();
 
 function getRandomWord() {
   const words = ["javascript", "java", "python"];
@@ -12,7 +13,6 @@ function getRandomWord() {
 }
 
 function displayWord() {
-  const selectedWord = getRandomWord();
   word_el.innerHTML = `
  ${selectedWord
    .split("")
@@ -31,5 +31,25 @@ function displayWord() {
     message_el.innerText = "Congratulations\n\nYou Won!";
   }
 }
+
+window.addEventListener("keydown", function (e) {
+  if (e.keyCode >= 65 && e.keyCode <= 90) {
+    const letter = e.key;
+
+    if (selectedWord.includes(letter)) {
+      if (!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+        displayWord();
+      } else {
+        console.log("this letter is already add");
+      }
+    } else {
+      if (!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+        console.log("wrong letters update");
+      }
+    }
+  }
+});
 
 displayWord();
