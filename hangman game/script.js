@@ -1,9 +1,12 @@
 const word_el = document.getElementById("word");
 const popup = document.getElementById("popup-container");
+const popup_el = document.querySelector(".popup");
 const message_el = document.getElementById("success-message");
 const wrongLetters_el = document.getElementById("wrong-letters");
 const items = document.querySelectorAll(".item");
+const message = document.getElementById("message");
 
+console.log(popup_el);
 const correctLetters = [];
 const wrongLetters = [];
 const selectedWord = getRandomWord();
@@ -48,6 +51,20 @@ function updateWrongLetters() {
       item.style.display = "none";
     }
   });
+
+  if (wrongLetters.length === items.length) {
+    popup.style.display = "flex";
+    popup_el.style.backgroundColor = "red";
+    message_el.innerText = "Unfortunately\n\nYou Lost!";
+  }
+}
+
+function displayMessage() {
+  message.classList.add("show");
+
+  setTimeout(function () {
+    message.classList.remove("show");
+  }, 2000);
 }
 window.addEventListener("keydown", function (e) {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
@@ -58,12 +75,14 @@ window.addEventListener("keydown", function (e) {
         correctLetters.push(letter);
         displayWord();
       } else {
-        console.log("this letter is already add");
+        displayMessage();
       }
     } else {
       if (!wrongLetters.includes(letter)) {
         wrongLetters.push(letter);
         updateWrongLetters();
+      } else {
+        displayMessage();
       }
     }
   }
