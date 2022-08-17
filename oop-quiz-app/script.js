@@ -58,14 +58,42 @@ let questions = [q1, q2, q3];
 
 let quiz = new Quiz(questions);
 
-console.log(quiz.isFinish());
+loadQuestion();
 
-console.log(quiz.getQuestion());
-quiz.guess('JavaScript')
-console.log(quiz.getQuestion());
-quiz.guess('JavaScript')
-console.log(quiz.getQuestion());
-quiz.guess('JavaScript')
+function loadQuestion() {
+  if (!quiz.isFinish()) {
+    let question = quiz.getQuestion();
+    let choices = question.choices;
+    document.querySelector("#question").textContent = question.text;
 
-console.log(quiz.score)
-console.log(quiz.isFinish());
+    for (let i = 0; i < choices.length; i++) {
+      let element = document.querySelector("#choice" + i);
+      element.innerHTML = choices[i];
+
+      guess("btn" + i, choices[i]);
+    }
+    showProgress();
+  } else {
+    showScore();
+  }
+}
+
+function guess(id, guess) {
+  let btn = document.getElementById(id);
+  btn.onclick = function () {
+    quiz.guess(guess);
+    loadQuestion();
+  };
+}
+function showScore() {
+  let html = `<h2>Score</h2><h4>${quiz.score}</h4>`;
+  document.querySelector(".card-body").innerHTML = html;
+  document.querySelector("#progress").innerText = "";
+}
+
+function showProgress() {
+  let totalQuestion = quiz.questions.length;
+  let questionNumber = quiz.questionsIndex + 1;
+  document.querySelector("#progress").innerHTML =
+    "Question " + questionNumber + " of " + totalQuestion;
+}
