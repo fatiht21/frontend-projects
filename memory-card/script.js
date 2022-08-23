@@ -12,10 +12,21 @@ let cards = [
 ];
 
 let dublicateCards = [...cards, ...cards];
+let deailingCards = [];
+selectRandomCard = () => {
+  let randomCardOrder = Math.round(Math.random() * dublicateCards.length - 1);
+  return dublicateCards.splice(randomCardOrder, 1);
+};
+const dealCards = () => {
+  for (let i = 0; i < 16; i++) {
+    deailingCards = [...deailingCards, ...selectRandomCard()];
+  }
+};
 
 const drawCards = () => {
+  dealCards();
   let cardItemsHtml = ``;
-  dublicateCards.forEach((item) => {
+  deailingCards.forEach((item) => {
     cardItemsHtml += `<img src="${item.src}" alt="" class="card" />`;
   });
 
