@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  display: flex;
+  background-color: #b9fff8;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card__container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2c3639;
+  box-shadow: 5px 15px 15px #3f4e4f;
+  width: 850px;
+  height: 800px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.card {
+  flex: 25%;
+  background-color: #B1D7B4;
+  height: 180px;
+  box-sizing: border-box;
+  border: 10px solid #2c3639;
+  border-radius: 20px;
+  cursor: pointer;
+}
