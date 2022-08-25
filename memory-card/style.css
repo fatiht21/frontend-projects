@@ -12,16 +12,16 @@ body {
   flex-wrap: wrap;
   background-color: #2c3639;
   box-shadow: 5px 15px 15px #3f4e4f;
-  width: 850px;
-  height: 800px;
+  width: 400px;
+  height: 400px;
   border-radius: 20px;
   padding: 20px;
 }
 
 .card {
-  flex: 25%;
+  width: 100px;
   background-color: white;
-  height: 180px;
+  height: 100px;
   box-sizing: border-box;
   border: 10px solid #2c3639;
   border-radius: 20px;
@@ -30,4 +30,11 @@ body {
 
 .card.open {
   background-color: blue;
+}
+
+.card.incorrect {
+  background-color: red;
+}
+.card.correct {
+  background-color: green;
 }

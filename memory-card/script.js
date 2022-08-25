@@ -1,5 +1,5 @@
 const cardContainerEl = document.querySelector(".card__container");
-
+let firstSelectedEl, secondSelectedEl;
 let cards = [
   { id: 1, src: "./img/shape_1.png" },
   { id: 2, src: "./img/shape_2.png" },
@@ -27,7 +27,9 @@ const drawCards = () => {
   dealCards();
   let cardItemsHtml = ``;
   deailingCards.forEach((item) => {
-    cardItemsHtml += `<img class="card animate__animated" src="${item.src}" onclick="selectedCard(this)" />`;
+    cardItemsHtml += `<img class="card animate__animated" src="${item.src}" 
+    data-id="${item.id}"
+    onclick="selectedCard(this)" />`;
   });
 
   cardContainerEl.innerHTML = cardItemsHtml;
@@ -36,5 +38,49 @@ const drawCards = () => {
 drawCards();
 
 const selectedCard = (el) => {
-  el.classList.add("open", "animate__flipInY");
+  if (!el.classList.contains("open")) {
+    el.classList.add("open", "animate__flipInY");
+
+    if (firstSelectedEl) {
+      secondSelectedEl = el;
+      checkSelectedCards(firstSelectedEl, secondSelectedEl);
+      firstSelectedEl = null;
+      secondSelectedEl = null;
+    } else {
+      firstSelectedEl = el;
+    }
+  }
+};
+
+const checkSelectedCards = (checkFirstEl, checkSecondEl) => {
+  if (checkFirstEl.dataset.id != checkSecondEl.dataset.id) {
+    checkFirstEl.classList.remove("animate__flipInY");
+    checkSecondEl.classList.remove("animate__flipInY");
+
+    checkFirstEl.classList.add("incorrect", "animate__shakeX");
+    checkSecondEl.classList.add("incorrect", "animate__shakeX");
+    setTimeout(() => {
+      checkFirstEl.classList.add("animate__flipOutY");
+      checkSecondEl.classList.add("animate__flipOutY");
+      setTimeout(() => {
+        checkFirstEl.classList.remove(
+          "open",
+          "incorrect",
+          "animate__shakeX",
+          "animate__flipOutY"
+        );
+        checkSecondEl.classList.remove(
+          "open",
+          "incorrect",
+          "animate__shakeX",
+          "animate__flipOutY"
+        );
+      }, 500);
+    }, 1000);
+  } else {
+    checkFirstEl.classList.remove("animate__flipInY");
+    checkSecondEl.classList.remove("animate__flipInY");
+    checkFirstEl.classList.add("correct", "animate__bounceIn");
+    checkSecondEl.classList.add("correct", "animate__bounceIn");
+  }
 };
