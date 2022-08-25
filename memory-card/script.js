@@ -27,10 +27,14 @@ const drawCards = () => {
   dealCards();
   let cardItemsHtml = ``;
   deailingCards.forEach((item) => {
-    cardItemsHtml += `<img src="${item.src}" alt="" class="card" />`;
+    cardItemsHtml += `<img class="card animate__animated" src="${item.src}" onclick="selectedCard(this)" />`;
   });
 
   cardContainerEl.innerHTML = cardItemsHtml;
 };
 
 drawCards();
+
+const selectedCard = (el) => {
+  el.classList.add("open", "animate__flipInY");
+};

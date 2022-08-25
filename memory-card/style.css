@@ -20,10 +20,14 @@ body {
 
 .card {
   flex: 25%;
-  background-color: #B1D7B4;
+  background-color: white;
   height: 180px;
   box-sizing: border-box;
   border: 10px solid #2c3639;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.card.open {
+  background-color: blue;
 }
