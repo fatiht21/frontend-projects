@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
- <title>Project: Rock Paper Scissors</title>
-</head>
-<body>
- <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">ROCK PAPER SCISSORS</h1>
+    </header>
+    <main>
+      <div class="scoreboard">
+        <h2 class="score-info" id="scoreInfo">Make your choice</h2>
+        <h3 class="score-message" id="scoreMessage">
+          First to score 5 points wins the game
+        </h3>
+        <div class="scores-container">
+          <div class="score-box">
+            <div class="sign" id="playerSign">❔</div>
+            <p class="score" id="playerScore">Player: 0</p>
+          </div>
+          <div class="score-box">
+            <div class="sign" id="computerSign">❔</div>
+            <p class="score" id="computerScore">Computer: 0</p>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-square" id="rockBtn">
+          <div class="sign-img">
+            <img src="/images/rock.png" alt="" width="100" />
+          </div>
+        </button>
+        <button class="btn btn-square" id="paperBtn">
+          <div class="sign-img">
+            <img src="images/paper.png" alt="" width="100" />
+          </div>
+        </button>
+        <button class="btn btn-square" id="scissorsBtn">
+          <div class="sign-img">
+            <img src="images/scissors.png" alt="" width="100" />
+          </div>
+        </button>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+      </p>
+    </footer>
+    <div class="modal" id="endgameModal">
+      <p class="modal-title" id="endgameMsg"></p>
+      <button class="btn btn-restart" id="restartBtn">Play again</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </body>
 </html>
