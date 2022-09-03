@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Etch A Etch</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Etch A Etch</h1>
+    </header>
+    <main>
+      <div class="settings">
+        <input id="colorPicker" type="color" value="#33333" />
+        <button id="colorBtn">Color</button>
+        <button id="rainbowBtn">Rainbow</button>
+        <button id="grayBtn">Gray</button>
+        <button id="eraserBtn">Eraser</button>
+        <button id="clearBtn">Clear</button>
+        <div id="sizeValue">16 x 16</div>
+        <input id="sizeSlider" type="range" value="16" min="2" max="100" />
+      </div>
+      <div id="grid"></div>
+    </main>
+    <footer>
+      <p>Copyright &copy;</p>
+    </footer>
+  </body>
+</html>
